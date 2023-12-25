@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main ()
+{
+char buffer[123]; // Define a character array 'buffer' to store user input
+unsigned long ul; // Define an unsigned long variable 'ul' to store the converted value
+
+    // Print a message asking the user for input
+printf ("\nInput an unsigned number: ");
+
+    // Read user input from standard input and store it in 'buffer'
+fgets (buffer,123,stdin);
+
+    // Convert the string in 'buffer' to an unsigned long, using base 0 (auto-detect)
+ul = strtoul (buffer,NULL,0);
+
+    // Print the converted value
+printf ("Output: %lu\n\n",ul);
+
+return 0; // Indicate successful program execution
+}
