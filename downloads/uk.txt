@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <gd.h>
+ 
+int main() {
+    FILE *out;
+    gdImagePtr im;
+    int blue, red, white;
+ 
+    // 嚙踝蕭藆???嚙賡?嚙?00x400嚙質?嚙賢?嚙踝蕭膃蕭嚙?
+    im = gdImageCreate(600, 400);
+ 
+    // ??嚙質?壯嚙踝蕭?伐撩?壯嚙踝蕭艞??橘蕭?壯嚙踝蕭嚙賣慾嚙踢?唐?
+    blue = gdImageColorAllocate(im, 16, 17, 181); // 嚙踝蕭?踢改蕭嚙磋GB嚙踝蕭
+    red = gdImageColorAllocate(im, 206, 17, 38);   // ?伐撩?壯嚙踝蕭RGB嚙踝蕭
+    white = gdImageColorAllocate(im, 255, 255, 255); // 嚙質嚙踢改蕭嚙磋GB嚙踝蕭
+ 
+    // 嚙賡?嚙踝蕭?踢扳??蕭嚙踝蕭?脤??埠井嚙?
+    gdImageFilledRectangle(im, 0, 0, 599, 399, blue);
+ 
+    // ???剛頛鳴蕭??嚙?
+    int thicknessVertical = 100;
+    int thicknessHorizontal = 100;
+    int thicknessDiagonal = 50;
+    int thicknessred = 70; // Adjust the thickness of the white line
+  int thicknessreds = 30;
+ 
+    // 嚙賡???臐Ⅶ??嚙賡?嚙踝蕭颲箄嚗綾改蕭嚙踝蕭?嚙?
+    int x = 300;
+    gdImageSetThickness(im, thicknessVertical);
+    gdImageLine(im, x, 0, x, 399, white);
+ 
+    // 嚙賡???臐Ⅶ??嚙賡?嚙踝蕭颲箄嚗綾抒?皜詨??伐蕭
+    int y = 200;
+    gdImageSetThickness(im, thicknessHorizontal);
+   
+    gdImageLine(im, 0, y, 599, y, white);
+ 
+    //gdImageSetThickness(im, thicknessred);
+  //gdImageLine(im, 0, y, 599, y, red);
+     
+    // ??嚙質??蕭嚙質噥?砥嚙賢???
+    gdImageSetThickness(im, thicknessDiagonal);
+    gdImageLine(im, 0, 0, 599,399, white);
+   
+  gdImageSetThickness(im, thicknessreds);
+    gdImageLine(im, 0, 0, 599, 399, red);
+ 
+    // ??嚙質??蕭撜噥?砥嚙賢???
+    gdImageSetThickness(im, thicknessDiagonal);
+    gdImageLine(im, 0, 399, 599, 0, white);
+    gdImageSetThickness(im, thicknessreds);
+    gdImageLine(im, 0, 399, 599, 0, red);
+   
+ 
+    // ???哨蕭?橘蕭?壯?亥撒嚙質??蕭
+    gdImageSetThickness(im, thicknessred);
+ 
+    // 嚙賡???臐Ⅶ??嚙賡?嚙踝蕭颲綽蕭?橘蕭?壯嚙踝蕭嚙賢??伐蕭
+    gdImageLine(im, x, 0, x, 399, red);
+  gdImageLine(im,  0, 200, 599 , 200, red);
+   
+   
+   
+  
+  
+    // 嚙踝撥嚙賣豪?迎蕭嚙質??蕭
+    gdImageSetThickness(im, thicknessVertical);
+ 
+    // ?蕭嚙賬?嚙質?嚙賢嚙賜?嚙踝蕭嚙踝蕭颲?
+    out = fopen("uk_flag.png", "wb");
+    gdImagePng(im, out);
+    fclose(out);
+ 
+    // 嚙踝蕭藀?藀嚙踝蕭?殷蕭
+    gdImageDestroy(im);
+ 
+    return 0;
+}
